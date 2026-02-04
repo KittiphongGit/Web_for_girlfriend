@@ -1,0 +1,75 @@
+/* ส่วนของการแสดงผลทั่วไป */
+.container {
+    overflow: hidden; /*  ซ่อนรูปที่ล้นขอบจอ     */
+    width: 100%;
+    background: rgb(241, 138, 202);
+    padding: 20px 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(211, 61, 86);
+}
+
+.HoverMe {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.null
+
+.body1 {
+    display: flex;
+    justify-content: center; /* จัด .container ให้อยู่กลางแนวนอน */
+    align-items: center;     /*จัด .container ให้อยู่กลางแนวตั้ง (ถ้าต้องการ)*/
+    min-height: 100vh;       /* ให้ body สูงเต็มจอ */
+}
+
+.slide {
+    display: flex;
+    width: max-content;
+    gap: 15px;
+    /* เรียกใช้ animation ชื่อ scroll */
+    animation: scroll 10s linear infinite; 
+    
+}
+
+/* หยุดเมื่อเอาเมาส์ไปชี้ที่รูปใดรูปหนึ่งใน slide */
+.slide:hover {
+    animation-play-state: paused;
+}
+
+.picture img {
+    border-radius: 10%;
+    object-fit: cover;
+    display: block;
+}
+
+.picture {
+    transition: transform 0.3s ease;
+}
+
+.picture:hover {
+    transform: scale(1.25);
+    z-index: 10;
+
+}
+
+.slide:has(.picture:hover) .picture:not(:hover) {
+    transform: scale(0.9,0.9);
+    filter: blur(5px);
+}
+
+/* Keyframes สำหรับเลื่อนไปทางขวา */
+@keyframes scroll {
+    from {
+        /* เริ่มจากตำแหน่งที่เลื่อนไปทางซ้ายครึ่งหนึ่งของความกว้างทั้งหมด */
+        transform: translateX(0%);
+    }
+    to {
+        /* เลื่อนกลับมาที่ตำแหน่งเริ่มต้น (ทางขวา) */
+        transform: translateX(-50%);
+    }
+}

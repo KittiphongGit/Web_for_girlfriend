@@ -1,0 +1,30 @@
+.NavBar {
+    text-align: center;
+    
+    margin-bottom: 50px;
+    background-color:rgb(245, 98, 233);
+    padding: 20px;
+}
+
+#common {
+    color: blue;
+    text-shadow: 1px 1px 0.5px white;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-decoration: none;
+}
+
+.NavBar:has(.Nav:hover) .Nav:not(:hover) {
+    filter: blur(3px);
+}
+
+header {
+    background-color: pink;
+    padding: 100px 0;
+    text-align: center;
+}
+
+header h1 {
+    color: violet;
+    text-shadow: 2px 2px 1px white;
+}
